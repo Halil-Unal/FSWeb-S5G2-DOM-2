@@ -18,7 +18,7 @@ const destinationSectionImg = document.querySelector('.content-destination img')
 const destinationButtons = document.querySelectorAll('.destination .btn');
 
 // Event listeners
-logoHeading.addEventListener('click', () => {
+logoHeading.addEventListener('click', (event) => {
   alert('You clicked the logo!');
 });
 
@@ -27,7 +27,7 @@ navLinks.forEach((navLink) => {
     navLink.style.color = 'red';
   });
   navLink.addEventListener('mouseleave', () => {
-    navLink.style.color = '';
+    navLink.style.color = 'green';
   });
 });
 
@@ -36,7 +36,11 @@ introImg.addEventListener('dblclick', () => {
 });
 
 introHeading.addEventListener('mousemove', () => {
-  introHeading.style.color = 'purple';
+    const colors=["red","blue","yellow"];
+    function randomcolor(number){
+        return Math.floor(Math.random()*number)
+    }
+  introHeading.style.color = colors[randomcolor(colors.length)];
 });
 
 introParagraphs.forEach((paragraph) => {
@@ -44,7 +48,7 @@ introParagraphs.forEach((paragraph) => {
     paragraph.style.backgroundColor = 'yellow';
   });
   paragraph.addEventListener('mouseup', () => {
-    paragraph.style.backgroundColor = '';
+    paragraph.style.backgroundColor = 'blue';
   });
 });
 
@@ -56,7 +60,7 @@ contentSection2Img.addEventListener('error', () => {
   console.log('Content section 2 image failed to load');
 });
 
-destinationSectionImg.addEventListener('mouseenter', () => {
+document.addEventListener('scroll', () => {
   destinationSectionImg.style.opacity = '0.5';
 });
 
